@@ -4,7 +4,7 @@ pipeline{
         maven 'M2_HOME'
     }
     stages{
-        stage("sonarqube"){
+        stage("sonarQube"){
             steps{
                 withSonarQubeEnv('sonarQube'){
                 sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Guilenedeveops_geo-app'
