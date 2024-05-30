@@ -4,7 +4,7 @@ pipeline{
         maven 'M2_HOME'
     }
     stages{
-        stage("sonarQube"){
+        stage("sonar-scan"){
             steps{
                 withSonarQubeEnv('sonarQube'){
                 sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Guilenedeveops_geo-app-new'
@@ -24,9 +24,7 @@ pipeline{
         }
         stage('upload artifact'){
             steps{
-                sh 'curl -uadmin:AP7bxAPKkWrSXTi9tv2SeCxA3Wn -T \
-                 target/bio*.jar \ 
-                 "http://54.164.53.36:8081/artifactory/study-app-geo/bio_${BUILD_ID}.jar"'
+                sh 'curl -uadmin:AP7bxAPKkWrSXTi9tv2SeCxA3Wn -T target/bio*.jar "http://54.164.53.36:8081/artifactory/study-app-geo/bio_${BUILD_ID}.jar"'
 
 
  
