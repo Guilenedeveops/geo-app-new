@@ -7,7 +7,7 @@ pipeline{
         stage("sonarQube"){
             steps{
                 withSonarQubeEnv('sonarQube'){
-                sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Guilenedeveops_geo-app'
+                sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Guilenedeveops_geo-app-new'
                 }
                 
               }
